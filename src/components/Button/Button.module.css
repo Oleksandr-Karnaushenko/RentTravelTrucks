@@ -1,0 +1,17 @@
+.button {
+  border-radius: 200px;
+  max-width: 166px;
+  height: 56px;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.view {
+  background: var(--button);
+  color: var(--white);
+  max-width: 173px;
+}
+.view:hover {
+  background: var(--button-hover);
+}

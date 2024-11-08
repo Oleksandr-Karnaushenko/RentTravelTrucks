@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:camperId" element={<CamperInfoPage />} />
+            <Route path="/catalog/:id" element={<CamperInfoPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
