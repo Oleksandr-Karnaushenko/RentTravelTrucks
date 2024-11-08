@@ -1,0 +1,23 @@
+.container {
+  padding: 48px 64px;
+  display: flex;
+  gap: 64px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.item {
+  width: 888px;
+  height: 368px;
+  border: 1px solid black;
+  text-align: center;
+}
