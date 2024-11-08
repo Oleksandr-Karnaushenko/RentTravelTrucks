@@ -1,19 +1,30 @@
 import { Link, NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 
-const Header = () => {
+import Logo from '../Logo/Logo.jsx';
+
+import styles from './Header.module.css';
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(isActive && styles.active);
+};
+
+export default function Header() {
   return (
-    <header>
-      <div>
+    <header className={styles.header}>
+      <div className={styles.logo}>
         <Link to="/">
-          <img src="" alt="" />
+          <Logo />
         </Link>
       </div>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/catalog">Catalog</NavLink>
+      <nav className={styles.nav}>
+        <NavLink to="/" className={buildLinkClass}>
+          Home
+        </NavLink>
+        <NavLink to="/catalog" className={buildLinkClass}>
+          Catalog
+        </NavLink>
       </nav>
     </header>
   );
-};
-
-export default Header;
+}
