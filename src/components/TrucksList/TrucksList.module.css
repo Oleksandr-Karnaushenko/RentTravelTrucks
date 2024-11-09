@@ -6,6 +6,8 @@
 .item {
   width: 888px;
   height: 368px;
-  border: 1px solid black;
-  text-align: center;
+  border: 1px solid var(--gray-light);
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--white);
 }

@@ -1,0 +1,46 @@
+.item {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+}
+
+.img {
+  border-radius: 10px;
+  max-width: 292px;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.name_price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating_location {
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+}
+
+.description {
+  color: var(--text);
+  max-width: 525px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.optionsList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.optionsItem {
+}

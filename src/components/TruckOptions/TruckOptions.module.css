@@ -1,0 +1,10 @@
+.content {
+  padding: 12px 18px;
+  text-align: center;
+  border-radius: 100px;
+  background: var(--badges);
+}
+.info {
+  font-weight: 500;
+  color: var(--main);
+}

@@ -7,11 +7,16 @@
   cursor: pointer;
 }
 
-.view {
+.view,
+.show {
   background: var(--button);
   color: var(--white);
-  max-width: 173px;
 }
-.view:hover {
+.view:hover,
+.show:hover {
   background: var(--button-hover);
+}
+
+.view {
+  max-width: 173px;
 }
