@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.item {
+  width: 888px;
+  height: 368px;
+  border: 1px solid black;
+  text-align: center;
+}
