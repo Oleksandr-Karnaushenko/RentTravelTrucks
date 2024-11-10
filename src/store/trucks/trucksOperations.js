@@ -26,7 +26,7 @@ export const getCamperInfo = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const { data } = await axios.get(`/campers/${id}`);
-      console.log(data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

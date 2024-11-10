@@ -73,7 +73,6 @@ const trucksSlice = createSlice({
 
       // get truck detail info
       .addCase(getCamperInfo.pending, state => {
-        state.truckInfo = initialState.truckInfo;
         state.error = null;
         state.isRefreshing = true;
       })
