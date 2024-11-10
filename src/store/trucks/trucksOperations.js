@@ -5,7 +5,9 @@ axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
 
 export const getCampers = createAsyncThunk(
   'trucks/getTrucks',
-  async (pagination, thunkAPI) => {
+  async ({ pagination }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    console.log(state);
     const { page, limit } = pagination;
     try {
       const { data } = await axios.get(

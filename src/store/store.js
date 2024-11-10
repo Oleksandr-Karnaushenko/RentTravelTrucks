@@ -11,11 +11,9 @@ import {
 } from 'redux-persist';
 
 import trucksReduser from './trucks/trucksSlice.js';
-import filterReduser from './trucks/trucksSlice.js';
 
 const rootReducer = combineReducers({
   trucks: trucksReduser,
-  filter: filterReduser,
 });
 
 const middleware = getDefaultMiddleware =>

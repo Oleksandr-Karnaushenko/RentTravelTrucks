@@ -4,15 +4,45 @@ import { getCampers } from './trucksOperations.js';
 
 const initialState = {
   total: 0,
-  items: [],
   isRefreshing: false,
   error: null,
+  filters: {
+    location: '',
+    equipment: {
+      AC: false,
+      bathroom: false,
+      kitchen: false,
+      TV: false,
+      radio: false,
+      refrigerator: false,
+      microwave: false,
+      gas: false,
+      water: false,
+    },
+    form: '',
+  },
+  queryFilters: '',
+  items: [],
 };
 
 const trucksSlice = createSlice({
   name: 'trucks',
   initialState,
-
+  reducers: {
+    addLocation(state, action) {
+      state.filters.location = action.payload;
+    },
+    addEquipment(state, action) {
+      state.filters.equipment[action.payload] =
+        !state.filters.equipment[action.payload];
+    },
+    addType(state, action) {
+      state.filters.form = action.payload;
+    },
+    addQueryFilters(state, action) {
+      state.queryFilters = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getCampers.pending, state => {

@@ -11,10 +11,9 @@ function CatalogPage() {
     <div className={styles.container}>
       <section className={styles.filters}>
         <Location />
-        <p>Filters</p>
         <VehicleEquipment />
         <VehicleType />
-        <Button variant="">Search</Button>
+        <Button variant="search">Search</Button>
       </section>
       <section className={styles.trucks}>
         <TrucksList />

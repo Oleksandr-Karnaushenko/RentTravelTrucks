@@ -10,12 +10,14 @@
 }
 
 .view,
-.show {
+.show,
+.search {
   background: var(--button);
   color: var(--white);
 }
 .view:hover,
-.show:hover {
+.show:hover,
+.search:hover {
   background: var(--button-hover);
 }
 

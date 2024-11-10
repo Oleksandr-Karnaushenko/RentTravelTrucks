@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import TruckBasicInfo from '../TruckBasicInfo/TruckBasicInfo.jsx';
@@ -22,13 +22,17 @@ export default function TrucksList() {
   const limit = 4;
   const totalPages = Math.ceil(totalItems / limit);
 
+  const pagination = useMemo(() => {
+    return { page, limit };
+  }, [page, limit]);
+
   const handleClickLoad = () => {
     setPage(page + 1);
   };
 
   useEffect(() => {
-    dispatch(getCampers({ page, limit }));
-  }, [dispatch, page]);
+    dispatch(getCampers({ pagination }));
+  }, [dispatch, pagination]);
 
   return (
     <div>
