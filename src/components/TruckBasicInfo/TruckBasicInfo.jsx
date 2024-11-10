@@ -1,22 +1,10 @@
 import Button from '../Button/Button.jsx';
 import Icon from '../Icon/Icon.jsx';
-import TruckOptions from '../TruckOptions/TruckOptions.jsx';
+import TruckOptionsList from '../TruckOptionsList/TruckOptionsList.jsx';
 
 import styles from './TruckBasicInfo.module.css';
 
 export default function TruckBasicInfo({ data }) {
-  const keysOptions = [
-    'AC',
-    'TV',
-    'bathroom',
-    'gas',
-    'kitchen',
-    'microwave',
-    'radio',
-    'refrigerator',
-    'water',
-  ];
-
   return (
     <div className={styles.item}>
       <img
@@ -47,24 +35,7 @@ export default function TruckBasicInfo({ data }) {
           </ul>
         </section>
         <p className={styles.description}>{data.description}</p>
-        <ul className={styles.optionsList}>
-          <li>
-            <TruckOptions option={data.transmission} id="transmission" />
-          </li>
-          <li>
-            <TruckOptions option={data.engine} id="engine" />
-          </li>
-          {keysOptions.map(key => {
-            if (data[key] === true) {
-              return (
-                <li key={key}>
-                  <TruckOptions option={key} />
-                </li>
-              );
-            }
-            return null;
-          })}
-        </ul>
+        <TruckOptionsList data={data} />
         <Button variant="showMore" id={data.id}>
           Show more
         </Button>

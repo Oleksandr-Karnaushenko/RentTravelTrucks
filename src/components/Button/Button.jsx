@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { selectFilters } from '../../store/trucks/trucksSelectors.js';
-import { addQueryFilters } from '../../store/trucks/actions.js';
+import { addQueryFilters, resetItems } from '../../store/trucks/actions.js';
 
 import createQueryParams from '../../utils/createQueryParams.js';
 
@@ -35,6 +35,7 @@ export default function Button({
     if (variant === 'search') {
       const queryFilters = createQueryParams(filters);
       dispatch(addQueryFilters(queryFilters));
+      dispatch(resetItems());
       dispatch(getCampers());
     }
   };

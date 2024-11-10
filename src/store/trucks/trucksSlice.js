@@ -50,21 +50,22 @@ const trucksSlice = createSlice({
     addQueryFilters(state, action) {
       state.queryFilters = action.payload;
     },
+    resetItems(state) {
+      state.items = initialState.items;
+    },
   },
   extraReducers: builder => {
     builder
       // get all trucks
       .addCase(getCampers.pending, state => {
-        state.items = initialState.items;
-        state.total = initialState.total;
         state.error = null;
         state.isRefreshing = true;
       })
       .addCase(getCampers.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
         state.total = payload.total;
-        state.items = payload.items;
-        // state.items = [...state.items, ...payload.items];
+        // state.items = payload.items;
+        state.items = [...state.items, ...payload.items];
       })
       .addCase(getCampers.rejected, (state, { payload }) => {
         state.isRefreshing = false;

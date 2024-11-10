@@ -48,12 +48,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.optionsList {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.optionsItem {
-}
