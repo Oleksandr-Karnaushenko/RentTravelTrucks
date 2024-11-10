@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getCampers } from './trucksOperations.js';
+import { getCamperInfo, getCampers } from './trucksOperations.js';
 
 const initialState = {
   total: 0,
   isRefreshing: false,
   error: null,
+  pagination: {
+    page: 1,
+    limit: 4,
+  },
   filters: {
     location: '',
     equipment: {
@@ -23,12 +27,16 @@ const initialState = {
   },
   queryFilters: '',
   items: [],
+  truckInfo: {},
 };
 
 const trucksSlice = createSlice({
   name: 'trucks',
   initialState,
   reducers: {
+    setPage(state, action) {
+      state.pagination.page = action.payload;
+    },
     addLocation(state, action) {
       state.filters.location = action.payload;
     },
@@ -45,16 +53,35 @@ const trucksSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+      // get all trucks
       .addCase(getCampers.pending, state => {
+        state.items = initialState.items;
+        state.total = initialState.total;
         state.error = null;
         state.isRefreshing = true;
       })
       .addCase(getCampers.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
         state.total = payload.total;
-        state.items = [...state.items, ...payload.items];
+        state.items = payload.items;
+        // state.items = [...state.items, ...payload.items];
       })
       .addCase(getCampers.rejected, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.error = payload;
+      })
+
+      // get truck detail info
+      .addCase(getCamperInfo.pending, state => {
+        state.truckInfo = initialState.truckInfo;
+        state.error = null;
+        state.isRefreshing = true;
+      })
+      .addCase(getCamperInfo.fulfilled, (state, { payload }) => {
+        state.isRefreshing = false;
+        state.truckInfo = payload;
+      })
+      .addCase(getCamperInfo.rejected, (state, { payload }) => {
         state.isRefreshing = false;
         state.error = payload;
       });

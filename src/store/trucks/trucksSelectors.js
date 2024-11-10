@@ -5,8 +5,14 @@ export const selectError = state => state.trucks.error;
 // select the total number of pages
 export const selectTotal = state => state.trucks.total;
 
+// select pagination
+export const selectPagination = state => state.trucks.pagination;
+
 // select all trucks
 export const selectItems = state => state.trucks.items;
+
+// select all trucks
+export const selectTruckInfo = state => state.trucks.truckInfo;
 
 // select all filters
 export const selectFilters = state => state.trucks.filters;

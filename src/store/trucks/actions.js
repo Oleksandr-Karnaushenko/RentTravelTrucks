@@ -7,3 +7,5 @@ export const addEquipment = createAction('trucks/addEquipment');
 export const addType = createAction('trucks/addType');
 
 export const addQueryFilters = createAction('trucks/addQueryFilters');
+
+export const setPage = createAction('trucks/setPage');
