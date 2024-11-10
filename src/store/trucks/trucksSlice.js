@@ -18,13 +18,11 @@ const trucksSlice = createSlice({
       .addCase(getCampers.pending, state => {
         state.error = null;
         state.isRefreshing = true;
-        state.total = initialState.total;
-        state.items = initialState.items;
       })
       .addCase(getCampers.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
         state.total = payload.total;
-        state.items = payload.items;
+        state.items = [...state.items, ...payload.items];
       })
       .addCase(getCampers.rejected, (state, { payload }) => {
         state.isRefreshing = false;

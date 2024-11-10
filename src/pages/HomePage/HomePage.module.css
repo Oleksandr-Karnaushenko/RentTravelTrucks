@@ -1,6 +1,6 @@
 .bgImg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('/src/assets/images/bgPicture.webp');
+    url('/images/bgPicture.webp');
   min-height: 696px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -13,7 +13,7 @@
 @media (min-resolution: 2dppx) {
   .bgImg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url('/src/assets/images/bgPicture2x.webp');
+      url('/images/bgPicture2x.webp');
   }
 }
 

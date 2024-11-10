@@ -1,10 +1,12 @@
 .button {
+  display: block;
   border-radius: 200px;
   max-width: 166px;
   height: 56px;
   font-size: 16px;
   letter-spacing: -0.01em;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .view,
@@ -19,4 +21,15 @@
 
 .view {
   max-width: 173px;
+}
+
+.load {
+  margin: 40px auto 0px;
+  min-width: 145px;
+  background: inherit;
+  border: 1px solid var(--gray-light);
+}
+
+.load:hover {
+  border-color: var(--button-hover);
 }
