@@ -1,8 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useId } from 'react';
 import * as Yup from 'yup';
 
 import styles from './FeedbackForm.module.css';
+import Button from '../Button/Button.jsx';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -28,64 +31,78 @@ export default function FeedbackForm() {
   const msgFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    console.log('object');
+    toast.success('Your reservation has been successfully sent!');
     actions.resetForm();
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
-    >
-      <Form className={styles.form}>
-        <div>
-          <label htmlFor={nameFieldId}></label>
-          <Field
-            type="text"
-            name="username"
-            id={nameFieldId}
-            placeholder="Name*"
-          />
-          <ErrorMessage name="username" component="span" />
-        </div>
+    <section className={styles.form_section}>
+      <ToastContainer />
+      <div className={styles.title}>
+        <h3>Book your campervan now</h3>
+        <p>Stay connected! We are always ready to help you.</p>
+      </div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
+      >
+        <Form className={styles.form}>
+          <div className={styles.div}>
+            <label htmlFor={nameFieldId}></label>
+            <Field
+              type="text"
+              name="name"
+              id={nameFieldId}
+              placeholder="Name*"
+              className={styles.input}
+            />
+            <ErrorMessage name="name" component="span" />
+          </div>
 
-        <div>
-          <label htmlFor={emailFieldId}></label>
-          <Field
-            type="email"
-            name="email"
-            id={emailFieldId}
-            placeholder="Email*"
-          />
-          <ErrorMessage name="email" component="span" />
-        </div>
+          <div>
+            <label htmlFor={emailFieldId}></label>
+            <Field
+              type="email"
+              name="email"
+              id={emailFieldId}
+              placeholder="Email*"
+              className={styles.input}
+            />
+            <ErrorMessage name="email" component="span" />
+          </div>
 
-        <div>
-          <label htmlFor={dateFieldId}></label>
-          <Field
-            type="text"
-            name="date"
-            id={dateFieldId}
-            placeholder="Booking date*"
-          />
-          <ErrorMessage name="date" component="span" />
-        </div>
+          <div>
+            <label htmlFor={dateFieldId}></label>
+            <Field
+              type="text"
+              name="date"
+              id={dateFieldId}
+              placeholder="Booking date*"
+              className={styles.input}
+            />
+            <ErrorMessage name="date" component="span" />
+          </div>
 
-        <div>
-          <label htmlFor={msgFieldId}></label>
-          <Field
-            as="textarea"
-            name="message"
-            id={msgFieldId}
-            rows="5"
-            placeholder="Comment"
-          />
-          <ErrorMessage name="message" component="span" />
-        </div>
+          <div>
+            <label htmlFor={msgFieldId}></label>
+            <Field
+              as="textarea"
+              name="message"
+              id={msgFieldId}
+              rows="5"
+              placeholder="Comment"
+              className={`${styles.textarea} ${styles.input}`}
+            />
+            <ErrorMessage name="message" component="span" />
+          </div>
 
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+          <Button type="submit" variant="submit">
+            Submit
+          </Button>
+        </Form>
+      </Formik>
+    </section>
   );
 }

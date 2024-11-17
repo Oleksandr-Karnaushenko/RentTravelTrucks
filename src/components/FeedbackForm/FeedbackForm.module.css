@@ -1,7 +1,45 @@
-.form {
+.form_section {
   width: calc((100% - 40px) / 2);
   border-radius: 10px;
   padding: 44px;
   border: 1px solid var(--gray-light);
   min-height: 588px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+}
+.form > :last-child {
+  margin-top: 10px;
+}
+
+.form div {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 18px;
+  height: 60px;
+  border: none;
+  background: var(--inputs);
+  border-radius: 12px;
+}
+
+.textarea {
+  height: 118px;
+  resize: none;
 }

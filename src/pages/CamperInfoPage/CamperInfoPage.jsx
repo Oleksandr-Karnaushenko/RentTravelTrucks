@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -13,6 +13,7 @@ import {
 import { getCamperInfo } from '../../store/trucks/trucksOperations.js';
 
 import styles from './CamperInfoPage.module.css';
+import Reviews from '../../components/Reviews/Reviews.jsx';
 
 function CamperInfoPage() {
   const dispatch = useDispatch();
@@ -21,9 +22,22 @@ function CamperInfoPage() {
 
   const { id } = useParams();
 
+  const [features, setFeatures] = useState(true);
+  const [reviews, setReviews] = useState(false);
+
   useEffect(() => {
     dispatch(getCamperInfo(id));
   }, [dispatch, id]);
+
+  const handleClick = name => {
+    if (name === 'features') {
+      setFeatures(true);
+      setReviews(false);
+    } else {
+      setFeatures(false);
+      setReviews(true);
+    }
+  };
 
   return (
     <>
@@ -34,11 +48,25 @@ function CamperInfoPage() {
           <div className={styles.container}>
             <MainTruckInfo truckInfo={truckInfo} />
             <div className={styles.navigation}>
-              <h3>Features</h3>
-              <h3>Reviews</h3>
+              <button
+                className={`${styles.btn} ${features && styles.isActive}`}
+                onClick={() => handleClick('features')}
+              >
+                <h3>Features</h3>
+              </button>
+              <button
+                className={`${styles.btn} ${reviews && styles.isActive}`}
+                onClick={() => handleClick('reviews')}
+              >
+                <h3>Reviews</h3>
+              </button>
             </div>
             <div className={styles.detail_info_form}>
-              <DetailInfo truckInfo={truckInfo} />
+              {features ? (
+                <DetailInfo truckInfo={truckInfo} />
+              ) : (
+                <Reviews reviews={truckInfo.reviews} />
+              )}
               <FeedbackForm />
             </div>
           </div>

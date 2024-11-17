@@ -19,6 +19,7 @@ export default function Button({
   children,
   loadMore,
   disabled = false,
+  type = 'button',
 }) {
   const navigate = useNavigate();
 
@@ -46,9 +47,11 @@ export default function Button({
         [styles.show]: variant === 'showMore',
         [styles.load]: variant === 'loadMore',
         [styles.search]: variant === 'search',
+        [styles.submit]: variant === 'submit',
       })}
       onClick={handleButtonClick}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>

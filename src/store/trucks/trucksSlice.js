@@ -52,6 +52,7 @@ const trucksSlice = createSlice({
     },
     resetItems(state) {
       state.items = initialState.items;
+      state.pagination = initialState.pagination;
     },
   },
   extraReducers: builder => {

@@ -10,7 +10,7 @@ export default function MainTruckInfo({ truckInfo }) {
         <div className={styles.ratingDescr}>
           <ul className={styles.rating_location}>
             <li>
-              <Icon id="star" width={16} height={14} color="rating"></Icon>
+              <Icon id="star" width={16} height={16} color="rating"></Icon>
               <p>
                 {truckInfo.rating}({truckInfo.reviews.length} Reviews)
               </p>
@@ -21,7 +21,7 @@ export default function MainTruckInfo({ truckInfo }) {
             </li>
           </ul>
           <div className={styles.price}>
-            <h2>&euro;{truckInfo.price}.00</h2>
+            <h2>&euro;{truckInfo.price.toFixed(2)}</h2>
           </div>
         </div>
       </section>

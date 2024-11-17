@@ -17,7 +17,7 @@ export default function TruckBasicInfo({ data }) {
           <div className={styles.name_price}>
             <h2>{data.name}</h2>
             <div className={styles.price}>
-              <h2>&euro;{data.price}.00</h2>
+              <h2>&euro;{data.price.toFixed(2)}</h2>
               <Icon id="like" width={26} height={24}></Icon>
             </div>
           </div>
