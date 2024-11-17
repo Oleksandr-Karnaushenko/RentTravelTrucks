@@ -49,7 +49,7 @@ export default function FeedbackForm() {
         validationSchema={FeedbackSchema}
       >
         <Form className={styles.form}>
-          <div className={styles.div}>
+          <div>
             <label htmlFor={nameFieldId}></label>
             <Field
               type="text"
