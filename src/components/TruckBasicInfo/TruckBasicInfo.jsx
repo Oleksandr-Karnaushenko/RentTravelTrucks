@@ -4,7 +4,9 @@ import TruckOptionsList from '../TruckOptionsList/TruckOptionsList.jsx';
 
 import styles from './TruckBasicInfo.module.css';
 
-export default function TruckBasicInfo({ data }) {
+export default function TruckBasicInfo({ data, onClick, favorites }) {
+  const isFavorite = favorites.includes(data.id);
+  console.log(isFavorite);
   return (
     <div className={styles.item}>
       <img
@@ -18,7 +20,17 @@ export default function TruckBasicInfo({ data }) {
             <h2>{data.name}</h2>
             <div className={styles.price}>
               <h2>&euro;{data.price.toFixed(2)}</h2>
-              <Icon id="like" width={26} height={24}></Icon>
+              <button
+                className={styles.favorite}
+                onClick={() => onClick(data.id)}
+              >
+                <Icon
+                  id="like"
+                  width={26}
+                  height={24}
+                  color={isFavorite && 'button'}
+                ></Icon>
+              </button>
             </div>
           </div>
           <ul className={styles.rating_location}>

@@ -4,7 +4,6 @@ import styles from './Review.module.css';
 
 export default function Review({ review }) {
   const items = [];
-
   for (let i = 1; i <= 5; i++) {
     items.push(
       <li key={i}>

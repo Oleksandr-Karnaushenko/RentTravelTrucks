@@ -14,6 +14,7 @@ import { getCamperInfo } from '../../store/trucks/trucksOperations.js';
 
 import styles from './CamperInfoPage.module.css';
 import Reviews from '../../components/Reviews/Reviews.jsx';
+import Loader from '../../components/Loader/Loader.jsx';
 
 function CamperInfoPage() {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function CamperInfoPage() {
   return (
     <>
       {loader ? (
-        <p>Loading,....</p>
+        <Loader />
       ) : (
         Object.keys(truckInfo).length !== 0 && (
           <div className={styles.container}>

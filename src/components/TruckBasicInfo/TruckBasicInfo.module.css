@@ -26,7 +26,15 @@
 .price {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+}
+
+.favorite {
+  display: block;
+  background: transparent;
+  cursor: pointer;
+  line-height: 100%;
 }
 
 .rating_location {
